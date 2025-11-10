@@ -7,6 +7,7 @@ from bap.pa_solver import PASolver
 from bap.rp_solver import RPSolver
 from bap.s_solver import SSolver
 from bap.ti_solver import TISolver
+from bap.gspp_solver import GSPPSolver
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -18,7 +19,7 @@ if __name__ == '__main__':
         '-i', '--instance', action='store', help='Path to the instance file')
     parser.add_argument(
         '-m', '--model', action='store', help='Model to use',
-        choices=('pa', 'rp', 's', 'ti'))
+        choices=('pa', 'rp', 's', 'ti', 'gspp'))
     parser.add_argument(
         '-s', '--starting-solution', action='store', type=str,
         help='File containing a starting solution')
@@ -44,6 +45,8 @@ if __name__ == '__main__':
         m = SSolver(instance=i, output_folder=args.output_folder)
     elif args.model == 'ti':
         m = TISolver(instance=i, output_folder=args.output_folder)
+    elif args.model == 'gspp':
+        m = GSPPSolver(instance=i, output_folder=args.output_folder)
     else:
         raise NotImplementedError(f"Model {args.model} not recognised")
     
