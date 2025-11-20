@@ -42,7 +42,16 @@ They can be used to create different instance sets startgin from the 2024 Port o
 
 ### Best known solutions
 
-TODO
+Best known solutions (BKS) are available in folder `bks`.
+They are currently only available for the `hyb|dyn|fix|max(comp)` problem type.
+There is one BKS for each instance, in Json format, with the following structure:
+
+* `solver`: comma-separated list of solvers that found the given best known primal feasible solution within a one-hour time limit. Valid values are "s", "ti", "rp", "pa", "gspp", which indicate five formulations [described below](#models), and "sgcp", indicating a search procedure that uses the [Selective Graph Colouring Problem](https://github.com/alberto-santini/selective-graph-colouring) and dynamic time discretisation. This search procedure is described in a [recent preprint](https://santini.in/files/papers/santini-2026.pdf).
+* `makespan`: makespan of the best known primal feasible solution. If the instance was not solved to optimality, this is a strict upper bound on the optimal solution value.
+* `dual_bound`: tightest known dual bound for the objective value of the instance.
+* `ships`: list describing when and where ships berth in the given primal feasible solution. Each element of the list contains some fields starting with `data_`. This is data that can be find directly in the instance file (ship id, ship length, arrival time, handling time) and does not influence the solution. By contrast, the `mooring_time` and `mooring_berth` fields describe in which period and at which berth the leftmost end of the ship berthed. They constitute the main information provided in the solution.
+
+New BKS can be submitted in the same format by [contacting the author](mailto:alberto.santini@upf.edu).
 
 ### Utilities
 
@@ -78,7 +87,7 @@ if __name__ == '__main__':
 
 ### Models
 
-Solvers for other five formulations are in folder `models/bap`.
+Solvers for five formulations are in folder `models/bap`.
 They are implemented in Python using Gurobi.
 The five implemented models are:
 
@@ -94,7 +103,7 @@ You can cite this repository via Zenodo:
 @misc{bap_github,
     title={Instances, Best Known Solutions and Models for Berth Allocation Problems},
     author={Santini, Alberto},
-    date={2025-06-30},
+    date={2025-11-20},
     howpublished={Github repository},
     doi={???},
     url={https://github.com/alberto-santini/berth-allocation-problems/}
