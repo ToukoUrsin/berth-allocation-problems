@@ -105,8 +105,18 @@ You can cite this repository via Zenodo:
     author={Santini, Alberto},
     date={2025-11-20},
     howpublished={Github repository},
-    doi={???},
+    doi={10.5281/zenodo.17665596},
     url={https://github.com/alberto-santini/berth-allocation-problems/}
+}
+```
+
+The repository was introduced in this paper:
+
+```bib
+@online{bap_sgcp,
+    title={Solving Berth Allocation Problems via Selective Graph Colouring},
+    author={Santini, Alberto},
+    url={https://santini.in/files/papers/santini-2026.pdf}
 }
 ```
 
